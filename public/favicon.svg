@@ -1,0 +1,333 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Background metal plate gradient -->
+    <linearGradient id="bgMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5E8EB"/>
+      <stop offset="35%" stop-color="#CCD2D7"/>
+      <stop offset="65%" stop-color="#B8BEC4"/>
+      <stop offset="100%" stop-color="#DDE1E5"/>
+    </linearGradient>
+
+    <!-- Outer silver rim bevel -->
+    <linearGradient id="outerSilverBevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#CFD4D8"/>
+      <stop offset="50%" stop-color="#8E959B"/>
+      <stop offset="75%" stop-color="#E2E6E9"/>
+      <stop offset="100%" stop-color="#6F757B"/>
+    </linearGradient>
+
+    <!-- Inner medal silver surface -->
+    <linearGradient id="innerSilverPlate" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#DFE3E7"/>
+      <stop offset="40%" stop-color="#C2C8CE"/>
+      <stop offset="60%" stop-color="#ADB4BB"/>
+      <stop offset="100%" stop-color="#D0D5DA"/>
+    </linearGradient>
+
+    <!-- Deep Emerald Green Enamel -->
+    <linearGradient id="emeraldEnamel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E5E3A"/>
+      <stop offset="50%" stop-color="#09452A"/>
+      <stop offset="100%" stop-color="#042C19"/>
+    </linearGradient>
+
+    <!-- Crimson / Maroon Red Enamel -->
+    <linearGradient id="crimsonEnamel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B81D33"/>
+      <stop offset="50%" stop-color="#8A1324"/>
+      <stop offset="100%" stop-color="#5E0B17"/>
+    </linearGradient>
+
+    <!-- Raised 3D Silver Metallic text/ribbon -->
+    <linearGradient id="textSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#DCE0E4"/>
+      <stop offset="60%" stop-color="#A5ACB2"/>
+      <stop offset="100%" stop-color="#7B8288"/>
+    </linearGradient>
+
+    <!-- ANSARI 3D Green raised text -->
+    <linearGradient id="ansariGreenText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#148652"/>
+      <stop offset="50%" stop-color="#0E5E3A"/>
+      <stop offset="100%" stop-color="#06351F"/>
+    </linearGradient>
+
+    <!-- Medallion 3D Drop Shadow -->
+    <filter id="medallionShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="24" stdDeviation="18" flood-color="#1A2026" flood-opacity="0.55"/>
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#0F1419" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Bevel drop shadow for inner elements -->
+    <filter id="emboss3D" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1.5" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Silver text highlight shadow -->
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <path id="bottomCurvedTextPath" d="M 195 565 A 250 250 0 0 0 605 565" fill="none" />
+  </defs>
+
+  <!-- Base Shadow & Outer Medallion Body -->
+  <g filter="url(#medallionShadow)">
+    <!-- Outermost rim base (diameter 720) -->
+    <circle cx="400" cy="400" r="360" fill="url(#outerSilverBevel)"/>
+    <circle cx="400" cy="400" r="350" fill="#6A7076"/>
+    <circle cx="400" cy="400" r="344" fill="url(#outerSilverBevel)"/>
+  </g>
+
+  <!-- Green & Crimson Outer Enamel Ring -->
+  <!-- Ring background green -->
+  <circle cx="400" cy="400" r="332" fill="url(#emeraldEnamel)" stroke="url(#outerSilverBevel)" stroke-width="4"/>
+
+  <!-- Ornate filigree segments in outer ring (Crimson red & silver trims) -->
+  <g stroke="url(#outerSilverBevel)" stroke-width="3.5" fill="none">
+    <!-- Top arch segment -->
+    <path d="M 330 84 Q 400 68 470 84" />
+    <path d="M 340 98 C 380 84, 420 84, 460 98" fill="url(#crimsonEnamel)"/>
+    
+    <!-- Top-Right filigree loops -->
+    <path d="M 480 88 C 550 110, 620 170, 660 240" />
+    <path d="M 505 106 C 560 135, 615 185, 645 245" fill="url(#crimsonEnamel)"/>
+    <circle cx="560" cy="140" r="10" fill="url(#outerSilverBevel)"/>
+    <circle cx="625" cy="205" r="9" fill="url(#outerSilverBevel)"/>
+
+    <!-- Right filigree loops -->
+    <path d="M 670 260 C 700 330, 700 440, 670 510" />
+    <path d="M 652 280 C 678 340, 678 430, 652 490" fill="url(#crimsonEnamel)"/>
+    <circle cx="678" cy="385" r="10" fill="url(#outerSilverBevel)"/>
+
+    <!-- Bottom-Right filigree loops -->
+    <path d="M 660 530 C 620 610, 540 670, 470 695" />
+    <path d="M 642 545 C 605 615, 535 668, 472 682" fill="url(#crimsonEnamel)"/>
+    <circle cx="615" cy="580" r="9" fill="url(#outerSilverBevel)"/>
+    <circle cx="535" cy="650" r="10" fill="url(#outerSilverBevel)"/>
+
+    <!-- Bottom arch segment -->
+    <path d="M 460 700 Q 400 716 340 700" />
+    <path d="M 450 684 C 420 696, 380 696, 350 684" fill="url(#crimsonEnamel)"/>
+
+    <!-- Bottom-Left filigree loops -->
+    <path d="M 330 695 C 260 670, 180 610, 140 530" />
+    <path d="M 328 682 C 265 668, 195 615, 158 545" fill="url(#crimsonEnamel)"/>
+    <circle cx="265" cy="650" r="10" fill="url(#outerSilverBevel)"/>
+    <circle cx="185" cy="580" r="9" fill="url(#outerSilverBevel)"/>
+
+    <!-- Left filigree loops -->
+    <path d="M 130 510 C 100 440, 100 330, 130 260" />
+    <path d="M 148 490 C 122 430, 122 340, 148 280" fill="url(#crimsonEnamel)"/>
+    <circle cx="122" cy="385" r="10" fill="url(#outerSilverBevel)"/>
+
+    <!-- Top-Left filigree loops -->
+    <path d="M 140 240 C 180 170, 250 110, 320 88" />
+    <path d="M 155 245 C 185 185, 240 135, 295 106" fill="url(#crimsonEnamel)"/>
+    <circle cx="175" cy="205" r="9" fill="url(#outerSilverBevel)"/>
+    <circle cx="240" cy="140" r="10" fill="url(#outerSilverBevel)"/>
+  </g>
+
+  <!-- Inner Silver Bevel Ring (Separating outer ring and center plate) -->
+  <circle cx="400" cy="400" r="280" fill="none" stroke="#5F656A" stroke-width="8"/>
+  <circle cx="400" cy="400" r="274" fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="7"/>
+
+  <!-- Subtle Brushed Metal Radial Texture Overlay -->
+  <circle cx="400" cy="400" r="268" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5"/>
+  <circle cx="400" cy="400" r="262" fill="none" stroke="#8A9096" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- ========================================== -->
+  <!-- CENTER GRAPHIC: ARCH, WINDOWS & SHIELD     -->
+  <!-- ========================================== -->
+  <g filter="url(#emboss3D)">
+    
+    <!-- Top Arch / Minaret Top (Apex at cx 400, y 150) -->
+    <g>
+      <!-- Base outline -->
+      <path d="M 372 195 L 372 165 C 372 155, 390 135, 400 125 C 410 135, 428 155, 428 165 L 428 195 Z" 
+            fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="4"/>
+      <!-- Inner arch opening -->
+      <path d="M 382 195 L 382 170 C 382 162, 394 148, 400 142 C 406 148, 418 162, 418 170 L 418 195 Z" 
+            fill="url(#crimsonEnamel)" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <!-- Finial needle on top -->
+      <line x1="400" y1="125" x2="400" y2="112" stroke="url(#outerSilverBevel)" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="400" cy="110" r="3.5" fill="url(#outerSilverBevel)"/>
+    </g>
+
+    <!-- LEFT WINDOW (3D open casement perspective) -->
+    <g>
+      <!-- Red backing wall block behind window -->
+      <polygon points="262,285 262,350 310,345 310,270" fill="url(#crimsonEnamel)" stroke="url(#outerSilverBevel)" stroke-width="3"/>
+      <!-- Open window casement frame -->
+      <polygon points="280,265 320,250 320,345 280,360" fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="4"/>
+      <!-- Window glass panes (4 panes) -->
+      <polygon points="286,274 300,268 300,305 286,310" fill="#E6EEF4" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="304,266 315,262 315,302 304,305" fill="#C9D6E1" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="286,315 300,310 300,348 286,352" fill="#D3DFE8" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="304,310 315,306 315,342 304,345" fill="#BAC8D3" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+    </g>
+
+    <!-- RIGHT WINDOW (3D open casement perspective) -->
+    <g>
+      <!-- Red backing wall block behind window -->
+      <polygon points="538,285 538,350 490,345 490,270" fill="url(#crimsonEnamel)" stroke="url(#outerSilverBevel)" stroke-width="3"/>
+      <!-- Open window casement frame -->
+      <polygon points="520,265 480,250 480,345 520,360" fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="4"/>
+      <!-- Window glass panes (4 panes) -->
+      <polygon points="514,274 500,268 500,305 514,310" fill="#E6EEF4" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="496,266 485,262 485,302 496,305" fill="#C9D6E1" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="514,315 500,310 500,348 514,352" fill="#D3DFE8" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+      <polygon points="496,310 485,306 485,342 496,345" fill="#BAC8D3" stroke="url(#outerSilverBevel)" stroke-width="2.5"/>
+    </g>
+
+    <!-- CENTRAL SHIELD & 'A' MONOGRAM -->
+    <g>
+      <!-- Outer silver shield contour -->
+      <path d="M 330 205 L 470 205 L 485 285 C 485 365, 400 405, 400 405 C 400 405, 315 365, 315 285 Z"
+            fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="5"/>
+
+      <!-- Inner Crimson Shield Field -->
+      <path d="M 342 217 L 458 217 L 470 285 C 470 350, 400 390, 400 390 C 400 390, 330 350, 330 285 Z"
+            fill="url(#crimsonEnamel)" stroke="url(#outerSilverBevel)" stroke-width="4"/>
+
+      <!-- Green arch outline inside shield -->
+      <path d="M 358 230 L 442 230 L 450 280 C 450 330, 400 365, 400 365 C 400 365, 350 330, 350 280 Z"
+            fill="none" stroke="url(#emeraldEnamel)" stroke-width="7"/>
+
+      <!-- Stylized Calligraphic 'A' in silver & green -->
+      <!-- Left leg of A -->
+      <path d="M 382 345 L 398 238 L 406 238 L 418 300" fill="none" stroke="url(#outerSilverBevel)" stroke-width="9" stroke-linecap="round"/>
+      <!-- Right swoop & apex curve of A -->
+      <path d="M 398 238 C 420 250, 435 280, 420 315 C 410 338, 385 340, 375 320" 
+            fill="none" stroke="url(#emeraldEnamel)" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 398 238 C 420 250, 435 280, 420 315" 
+            fill="none" stroke="url(#outerSilverBevel)" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- 4-Pane Window Lattice Grid (Bottom-Right of Shield) -->
+      <g transform="translate(426, 330)">
+        <!-- Silver frame outer -->
+        <rect x="0" y="0" width="30" height="30" rx="2" fill="url(#outerSilverBevel)" stroke="#3E4347" stroke-width="2"/>
+        <!-- 4 red panes -->
+        <rect x="3" y="3" width="10" height="10" fill="url(#crimsonEnamel)"/>
+        <rect x="17" y="3" width="10" height="10" fill="url(#crimsonEnamel)"/>
+        <rect x="3" y="17" width="10" height="10" fill="url(#crimsonEnamel)"/>
+        <rect x="17" y="17" width="10" height="10" fill="url(#crimsonEnamel)"/>
+      </g>
+    </g>
+
+  </g>
+
+  <!-- ========================================== -->
+  <!-- CENTRAL BANNER: ANSARI ALUMINIUM           -->
+  <!-- ========================================== -->
+  <g filter="url(#emboss3D)">
+    <!-- Raised Horizontal Silver Banner Plate -->
+    <!-- Top banner bar border -->
+    <path d="M 185 412 L 615 412 L 635 480 L 165 480 Z"
+          fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="5"/>
+
+    <!-- Subtle inner highlight line on banner -->
+    <line x1="175" y1="416" x2="625" y2="416" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.8"/>
+    <line x1="168" y1="476" x2="632" y2="476" stroke="#5F656A" stroke-width="2"/>
+
+    <!-- Main Bold Brand Name: ANSARI ALUMINIUM -->
+    <!-- ANSARI (Bold Emerald Green raised 3D letters) -->
+    <text x="210" y="464" 
+          font-family="'Cabinet Grotesk', 'Arial Black', Impact, sans-serif" 
+          font-size="47" 
+          font-weight="900" 
+          letter-spacing="1" 
+          fill="url(#ansariGreenText)" 
+          stroke="url(#outerSilverBevel)" 
+          stroke-width="1.8"
+          filter="url(#textGlow)">
+      ANSARI
+    </text>
+
+    <!-- ALUMINIUM (Bold Raised Silver/Chrome 3D letters) -->
+    <text x="408" y="464" 
+          font-family="'Cabinet Grotesk', 'Arial Black', Impact, sans-serif" 
+          font-size="47" 
+          font-weight="900" 
+          letter-spacing="0.5" 
+          fill="url(#textSilver)" 
+          stroke="#4F555A" 
+          stroke-width="1.5"
+          filter="url(#textGlow)">
+      ALUMINIUM
+    </text>
+  </g>
+
+  <!-- Sub-Ribbon: WINDOW EXPERT & FABRICATION -->
+  <g filter="url(#emboss3D)">
+    <!-- Raised secondary silver ribbon plate -->
+    <path d="M 215 486 L 585 486 L 598 522 L 202 522 Z"
+          fill="url(#innerSilverPlate)" stroke="url(#outerSilverBevel)" stroke-width="3.5"/>
+
+    <text x="400" y="512" 
+          text-anchor="middle"
+          font-family="'Plus Jakarta Sans', Arial, Helvetica, sans-serif" 
+          font-size="20" 
+          font-weight="800" 
+          letter-spacing="2.8" 
+          fill="#2C3238" 
+          stroke="url(#outerSilverBevel)"
+          stroke-width="0.8"
+          filter="url(#textGlow)">
+      WINDOW EXPERT &amp; FABRICATION
+    </text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- LOWER SECTION: GST, PHONE, LOCATION        -->
+  <!-- ========================================== -->
+  <g filter="url(#textGlow)">
+    <!-- GST No. -->
+    <text x="400" y="556" 
+          text-anchor="middle"
+          font-family="'Plus Jakarta Sans', Arial, Helvetica, sans-serif" 
+          font-size="18" 
+          font-weight="800" 
+          letter-spacing="1.2" 
+          fill="#1E242A">
+      GST No.: 10AAWPQ6678G1Z4
+    </text>
+
+    <!-- Mobile Numbers -->
+    <text x="400" y="586" 
+          text-anchor="middle"
+          font-family="'Plus Jakarta Sans', Arial, Helvetica, sans-serif" 
+          font-size="19" 
+          font-weight="800" 
+          letter-spacing="1" 
+          fill="#1E242A">
+      Mob: 7052352185, 73523521195
+    </text>
+
+    <!-- Address line in parenthesis -->
+    <text x="400" y="614" 
+          text-anchor="middle"
+          font-family="'Plus Jakarta Sans', Arial, Helvetica, sans-serif" 
+          font-size="13" 
+          font-weight="800" 
+          letter-spacing="0.5" 
+          fill="#2C3238">
+      (Address: HAKAM, MAHADEVA ROAD, SIWAN)
+    </text>
+  </g>
+
+  <!-- Bottom Arch Curved Text along the inner border -->
+  <text font-family="'Plus Jakarta Sans', Arial, Helvetica, sans-serif" 
+        font-size="18.5" 
+        font-weight="900" 
+        letter-spacing="3.5" 
+        fill="#141A20"
+        filter="url(#textGlow)">
+    <textPath href="#bottomCurvedTextPath" startOffset="50%" text-anchor="middle">
+      HAKAM, MAHADEVA ROAD, SIWAN
+    </textPath>
+  </text>
+
+</svg>
