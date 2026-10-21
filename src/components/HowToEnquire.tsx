@@ -85,10 +85,10 @@ export const HowToEnquire: React.FC<{ onStartEnquiry: () => void }> = ({ onStart
               Send us your query now or fill out our quick requirement form below.
             </p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
             <button
               onClick={onStartEnquiry}
-              className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm transition-colors shadow-xs"
+              className="min-h-[44px] inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm transition-colors shadow-xs active:scale-95"
             >
               Fill Enquiry Form
             </button>
@@ -96,7 +96,7 @@ export const HowToEnquire: React.FC<{ onStartEnquiry: () => void }> = ({ onStart
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-semibold text-sm transition-colors border border-slate-600"
+              className="min-h-[44px] inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-semibold text-sm transition-colors border border-slate-600 active:scale-95"
             >
               WhatsApp Us
             </a>

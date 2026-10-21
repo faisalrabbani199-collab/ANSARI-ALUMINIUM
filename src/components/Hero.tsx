@@ -29,9 +29,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProducts, onOpenContact }) 
           {/* Left Column: Headline, Subtitle, CTAs */}
           <div className="lg:col-span-7 flex flex-col space-y-6">
             
-            {/* Subtle Local Shop Identity Badge (Unboxed text with saffron accent) */}
+            {/* Subtle Local Shop Identity Info (Clean unboxed text with subtle separators) */}
             <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wider text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span className="text-emerald-400 font-bold">25+ Years Experience</span>
               <span className="text-slate-500">·</span>
               <span className="text-amber-400">Hakam, Mahadeva Road</span>
@@ -151,7 +150,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProducts, onOpenContact }) 
 
                 {/* Floating Experience Badge */}
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-slate-900/90 backdrop-blur-md border border-slate-700 text-xs font-bold text-emerald-400 flex items-center gap-1.5 shadow-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span>25+ Years of Craftsmanship</span>
                 </div>
 

@@ -113,6 +113,10 @@ export const AboutSection: React.FC = () => {
                   </a>
                 </p>
                 <p>
+                  <span className="font-semibold text-slate-800">Shop Hours: </span>
+                  <span className="text-slate-900 font-semibold">7:00 AM – 7:00 PM (Daily)</span>
+                </p>
+                <p>
                   <span className="font-semibold text-slate-800">Location: </span>
                   <span>Hakam, Mahadeva Road, Siwan, Bihar - 841227</span>
                 </p>

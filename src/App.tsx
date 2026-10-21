@@ -14,11 +14,12 @@ import { HowToEnquire } from './components/HowToEnquire';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { Phone, MessageCircle } from 'lucide-react';
+import { EnquiryModal } from './components/EnquiryModal';
+import { Phone, MessageCircle, FileText } from 'lucide-react';
 
 const MainLayout: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const { state, getWhatsAppLink, getCallLink } = useBusiness();
+  const { state, getWhatsAppLink, getCallLink, openEnquiryModal } = useBusiness();
 
   // Handle smooth scroll navigation
   const scrollToSection = (id: string) => {
@@ -60,7 +61,7 @@ const MainLayout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans pb-20 sm:pb-0">
       
       {/* Sticky Header Navigation */}
       <Navbar activeSection={activeSection} onNavigate={scrollToSection} />
@@ -74,7 +75,7 @@ const MainLayout: React.FC = () => {
         <ProductServices />
         <WhyChoose />
         <Gallery />
-        <HowToEnquire onStartEnquiry={() => scrollToSection('contact')} />
+        <HowToEnquire onStartEnquiry={openEnquiryModal} />
         <AboutSection />
         <ContactSection />
       </main>
@@ -82,26 +83,37 @@ const MainLayout: React.FC = () => {
       {/* Footer */}
       <Footer onNavigate={scrollToSection} />
 
-      {/* Mobile Sticky Action Bar (Strictly <15% of viewport height, thumb-friendly) */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 p-2.5 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 flex items-center gap-2 shadow-2xl">
+      {/* Mobile Sticky Action Bar (<15% of viewport height, thumb-friendly, safe-area padded) */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 px-3 py-2 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 flex items-center gap-2 shadow-2xl pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <a
           href={getCallLink()}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-800 text-white font-semibold text-xs border border-slate-700 active:scale-95 transition-transform"
+          className="flex-1 min-h-[44px] inline-flex items-center justify-center gap-1.5 px-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs border border-slate-800 active:scale-95 transition-transform"
         >
-          <Phone className="w-3.5 h-3.5 text-teal-400" />
-          <span>Call Shop</span>
+          <Phone className="w-4 h-4 text-teal-400 shrink-0" />
+          <span>Call</span>
         </a>
+
+        <button
+          onClick={openEnquiryModal}
+          className="flex-1 min-h-[44px] inline-flex items-center justify-center gap-1.5 px-2.5 rounded-xl bg-teal-950/80 text-teal-300 font-semibold text-xs border border-teal-500/40 active:scale-95 transition-transform"
+        >
+          <FileText className="w-4 h-4 text-teal-400 shrink-0" />
+          <span>Enquiry</span>
+        </button>
 
         <a
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md active:scale-95 transition-transform"
+          className="flex-1 min-h-[44px] inline-flex items-center justify-center gap-1.5 px-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md active:scale-95 transition-transform"
         >
-          <MessageCircle className="w-3.5 h-3.5 fill-current" />
+          <MessageCircle className="w-4 h-4 fill-current shrink-0" />
           <span>WhatsApp</span>
         </a>
       </div>
+
+      {/* Requirement Enquiry Modal Popup */}
+      <EnquiryModal />
 
     </div>
   );

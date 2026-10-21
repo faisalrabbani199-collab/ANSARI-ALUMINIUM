@@ -141,8 +141,8 @@ export const Gallery: React.FC = () => {
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Gallery Grid (1 col on mobile, 2 col on tablet, 3 col on laptop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {currentItems.map((item, index) => {
             const uploadedUrl = state.customPhotos[item.id];
             const displayImage = uploadedUrl || item.imagePath;
@@ -238,19 +238,19 @@ export const Gallery: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Bar inside Lightbox */}
-            <div className="w-full flex items-center justify-between pb-3 text-sm text-slate-300">
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-white">
+            <div className="w-full flex items-center justify-between pb-3 text-xs sm:text-sm text-slate-300 gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-bold text-white truncate">
                   {currentItems[activeLightboxIndex].title}
                 </span>
-                <span className="text-slate-500">·</span>
-                <span className="text-teal-400 text-xs">
+                <span className="hidden sm:inline text-slate-500">·</span>
+                <span className="hidden sm:inline text-teal-400 text-xs truncate">
                   {currentItems[activeLightboxIndex].caption}
                 </span>
               </div>
               <button
                 onClick={() => setActiveLightboxIndex(null)}
-                className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors shrink-0"
                 aria-label="Close Lightbox"
               >
                 <X className="w-5 h-5" />
@@ -297,7 +297,7 @@ export const Gallery: React.FC = () => {
                   e.stopPropagation();
                   setActiveLightboxIndex((prev) => (prev !== null ? (prev - 1 + currentItems.length) % currentItems.length : null));
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700 shadow-lg transition-transform hover:scale-105"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 shadow-lg transition-transform active:scale-95"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -308,7 +308,7 @@ export const Gallery: React.FC = () => {
                   e.stopPropagation();
                   setActiveLightboxIndex((prev) => (prev !== null ? (prev + 1) % currentItems.length : null));
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700 shadow-lg transition-transform hover:scale-105"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 shadow-lg transition-transform active:scale-95"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-5 h-5" />

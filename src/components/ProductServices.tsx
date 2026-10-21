@@ -87,11 +87,11 @@ export const ProductServices: React.FC = () => {
         </div>
 
         {/* Filter Segmented Control & Optional ACP Toggle */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div className="inline-flex p-1 bg-slate-200/80 rounded-xl text-xs font-medium" role="tablist">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div className="flex items-center overflow-x-auto max-w-full p-1 bg-slate-200/80 rounded-xl text-xs font-medium gap-1 no-scrollbar shrink-0" role="tablist">
             <button
               onClick={() => setSelectedFilter('all')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all ${
+              className={`min-h-[36px] px-3.5 py-1.5 rounded-lg whitespace-nowrap shrink-0 transition-all ${
                 selectedFilter === 'all'
                   ? 'bg-white text-slate-900 shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -101,7 +101,7 @@ export const ProductServices: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedFilter('windows')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all ${
+              className={`min-h-[36px] px-3.5 py-1.5 rounded-lg whitespace-nowrap shrink-0 transition-all ${
                 selectedFilter === 'windows'
                   ? 'bg-white text-slate-900 shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -111,7 +111,7 @@ export const ProductServices: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedFilter('doors')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all ${
+              className={`min-h-[36px] px-3.5 py-1.5 rounded-lg whitespace-nowrap shrink-0 transition-all ${
                 selectedFilter === 'doors'
                   ? 'bg-white text-slate-900 shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -121,7 +121,7 @@ export const ProductServices: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedFilter('materials')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all ${
+              className={`min-h-[36px] px-3.5 py-1.5 rounded-lg whitespace-nowrap shrink-0 transition-all ${
                 selectedFilter === 'materials'
                   ? 'bg-white text-slate-900 shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -131,7 +131,7 @@ export const ProductServices: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedFilter('fabrication')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all ${
+              className={`min-h-[36px] px-3.5 py-1.5 rounded-lg whitespace-nowrap shrink-0 transition-all ${
                 selectedFilter === 'fabrication'
                   ? 'bg-white text-slate-900 shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'

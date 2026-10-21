@@ -28,6 +28,10 @@ interface BusinessContextType {
   getCallLink: () => string;
   isConfigModalOpen: boolean;
   setIsConfigModalOpen: (open: boolean) => void;
+  isEnquiryModalOpen: boolean;
+  setIsEnquiryModalOpen: (open: boolean) => void;
+  openEnquiryModal: () => void;
+  closeEnquiryModal: () => void;
 }
 
 const STORAGE_KEY = 'ansari_aluminium_owner_config';
@@ -63,6 +67,11 @@ export const BusinessProvider: React.FC<{ children: React.ReactNode }> = ({ chil
           parsed.phoneNumber = BUSINESS_CONFIG.contact.phoneNumberDisplay;
           parsed.isPhoneConfigured = true;
         }
+        // Ensure confirmed shop hours 7:00 AM - 7:00 PM are active
+        if (!parsed.openingHours || parsed.openingHours.includes('[ADD') || !parsed.isHoursConfirmed) {
+          parsed.openingHours = BUSINESS_CONFIG.contact.openingHoursPlaceholder;
+          parsed.isHoursConfirmed = true;
+        }
         if (!parsed.ownerName) {
           parsed.ownerName = BUSINESS_CONFIG.ownerName;
         }
@@ -75,6 +84,10 @@ export const BusinessProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   });
 
   const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
+  const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
+
+  const openEnquiryModal = () => setIsEnquiryModalOpen(true);
+  const closeEnquiryModal = () => setIsEnquiryModalOpen(false);
 
   useEffect(() => {
     try {
@@ -164,6 +177,10 @@ export const BusinessProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         getCallLink,
         isConfigModalOpen,
         setIsConfigModalOpen,
+        isEnquiryModalOpen,
+        setIsEnquiryModalOpen,
+        openEnquiryModal,
+        closeEnquiryModal,
       }}
     >
       {children}

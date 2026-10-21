@@ -1,14 +1,16 @@
 import React from 'react';
-import { Phone, MessageCircle, MapPin, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, ShieldCheck, Clock } from 'lucide-react';
 import { useBusiness } from '../context/BusinessContext';
 import { ASSET_IMAGES } from '../assets/assetMap';
+import { isShopOpenNow } from '../config/businessConfig';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const { config, state, getWhatsAppLink, getCallLink, setIsConfigModalOpen } = useBusiness();
+  const { config, state, getWhatsAppLink, getCallLink } = useBusiness();
+  const shopStatus = isShopOpenNow();
   const currentYear = 2026;
 
   return (
@@ -114,17 +116,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Location & Opening Hours */}
+          {/* Location & Contact */}
           <div className="lg:col-span-5 space-y-4">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display">
-              Location &amp; Hours
+              Shop Location
             </h4>
             
-            <div className="space-y-3 text-xs">
+            <div className="space-y-3.5 text-xs">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-slate-300 font-medium">Shop Location: </span>
+                  <span className="text-slate-300 font-medium">Address: </span>
                   <p className="text-slate-300 font-semibold mt-0.5">
                     {state.fullAddress}
                   </p>
@@ -134,14 +136,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
+              {/* Shop Timings Row */}
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-slate-300 font-medium">Opening Hours: </span>
-                  <p className="text-slate-400 mt-0.5">
-                    {state.isHoursConfirmed
-                      ? state.openingHours
-                      : "Opening hours subject to confirmation with shop."}
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-300 font-medium">Shop Timings: </span>
+                    <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-sm ${
+                      shopStatus.isOpen ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/30' : 'bg-slate-900 text-amber-400 border border-amber-500/30'
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${
+                        shopStatus.isOpen ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+                      }`} />
+                      {shopStatus.label}
+                    </span>
+                  </div>
+                  <p className="text-slate-200 font-semibold mt-0.5">
+                    7:00 AM – 7:00 PM
+                  </p>
+                  <p className="text-[11px] text-teal-400 mt-0.5">
+                    Open Daily (Monday to Sunday)
                   </p>
                 </div>
               </div>

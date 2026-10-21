@@ -59,9 +59,11 @@ export const BUSINESS_CONFIG = {
     confirmedLandmark: "Hakam, Mahadeva Road, Siwan, Bihar - 841227",
     isAddressConfirmed: true,
     
-    // Opening Hours
-    openingHoursPlaceholder: "[ADD OPENING HOURS - e.g., Monday to Saturday: 9:00 AM – 8:00 PM]",
-    isHoursConfirmed: false,
+    // Opening Hours (Confirmed by Owner)
+    openingHoursPlaceholder: "7:00 AM – 7:00 PM",
+    openingHoursDisplay: "7:00 AM – 7:00 PM",
+    openingDaysDisplay: "Open Daily (Monday – Sunday)",
+    isHoursConfirmed: true,
     
     // GST Notice
     gstNumber: "10AAWPQ6678G1Z4",
@@ -215,5 +217,43 @@ export const BUSINESS_CONFIG = {
     const phone = configuredPhone || BUSINESS_CONFIG.contact.whatsappNumber;
     const text = `Hello Ansari Aluminium, I would like to enquire about ${productName}. Please share availability and pricing.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  }
+};
+
+/**
+ * Calculates whether Ansari Aluminium is currently open (7:00 AM - 7:00 PM IST)
+ */
+export const isShopOpenNow = (): { isOpen: boolean; label: string; subLabel: string } => {
+  try {
+    const now = new Date();
+    // Use Asia/Kolkata (Indian Standard Time)
+    const istString = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour12: false });
+    const [hours, minutes] = istString.split(':').map(Number);
+    const totalMinutes = hours * 60 + minutes;
+
+    const openMinutes = 7 * 60;   // 7:00 AM
+    const closeMinutes = 19 * 60; // 7:00 PM (19:00)
+
+    if (totalMinutes >= openMinutes && totalMinutes < closeMinutes) {
+      return {
+        isOpen: true,
+        label: "Open Now",
+        subLabel: "Until 7:00 PM Today"
+      };
+    } else {
+      return {
+        isOpen: false,
+        label: "Closed Now",
+        subLabel: "Opens at 7:00 AM"
+      };
+    }
+  } catch {
+    const localHour = new Date().getHours();
+    const isOpen = localHour >= 7 && localHour < 19;
+    return {
+      isOpen,
+      label: isOpen ? "Open Now" : "Closed Now",
+      subLabel: isOpen ? "Until 7:00 PM" : "Opens at 7:00 AM"
+    };
   }
 };
